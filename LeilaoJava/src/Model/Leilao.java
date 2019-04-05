@@ -25,10 +25,10 @@ public class Leilao {
 	public void setEncerrado(Boolean encerrado) {
 		this.encerrado = encerrado;
 	}
-	public List<Lances> getMaiorLance() {
+	public List<Lances> getLances() {
 		return lstLances;
 	}
-	public void setMaiorLance(List<Lances> lstLances) {
+	public void setLances(List<Lances> lstLances) {
 		this.lstLances = lstLances;
 	}
 	
