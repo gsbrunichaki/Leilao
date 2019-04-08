@@ -14,9 +14,9 @@ public class ProcessamentoLeilao {
 
 	public Lances maiorLance(int id) {
 		Lances maior = null;
-		for (int i = 0; i < smlBanco.getLeiloes().get(id).getLances().size(); i++) {
-			if (smlBanco.getLeiloes().get(id).getLances().get(i).getValor() > maior.getValor()) {
-				maior = smlBanco.getLeiloes().get(id).getLances().get(i);
+		for (int i = 0; i < smlBanco.returnLeilao(id).getLances().size(); i++) {
+			if (smlBanco.returnLeilao(id).getLances().get(i).getValor() > maior.getValor()) {
+				maior = smlBanco.returnLeilao(id).getLances().get(i);
 			}
 		}
 		
@@ -48,6 +48,10 @@ public class ProcessamentoLeilao {
 		//RNs
 		this.smlBanco.incluirProduto(p);
 	}
+	public void novoLance (Lances l, int id) {
+		this.smlBanco.incluirLance(l, id);
+	}
+	
 	
 	public List<Produtos> lstProdutos(){
 		return smlBanco.getProdutos();

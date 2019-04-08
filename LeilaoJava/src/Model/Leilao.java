@@ -1,25 +1,28 @@
 package Model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Leilao {
 	private int id;
 	private Produtos produto;
 	private Boolean encerrado;
-	private List<Lances> lstLances;
+	private List<Lances> lstLances = new ArrayList<Lances>();
 	
-	public Leilao(Produtos produto, Boolean encerrado, List<Lances> lstLances, int id) {
+	public Leilao(int id,Produtos produto, Boolean encerrado, List<Lances> lstLances) {
 		this.produto = produto;
 		this.encerrado = encerrado;
 		this.lstLances = lstLances;
 		this.id = id;
+	}
+	public Leilao() {
+		
 	}
 	
 	
 	public int getId() {
 		return id;
 	}
-
 
 	public void setId(int id) {
 		this.id = id;
