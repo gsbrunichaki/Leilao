@@ -36,10 +36,10 @@ public class ProcessamentoLeilao {
 		this.smlBanco.incluirLeilao(l);
 	}
 	
-	public void novoComprador(Compradores c) {
+	public List<Compradores> novoComprador(Compradores c) {
 		//RNs -  não pode ser menor que 0
 		//chama model e inclui no banco
-		this.smlBanco.incluirComprador(c);
+		return this.smlBanco.incluirComprador(c);
 		
 	}
 	

@@ -3,12 +3,19 @@ package Model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SimulaBanco {
-	public List<Leilao> lstLeilao = new ArrayList<Leilao> ();
-	public List<Compradores> lstCompradores  = new ArrayList<Compradores> ();
-	public List<Produtos> lstProdutos = new ArrayList<Produtos> ();
-	public List<Vendedores> lstVendedores = new ArrayList<Vendedores> ();
+	public class SimulaBanco {
+	public List<Leilao> lstLeilao;
+	public List<Compradores> lstCompradores;
+	public List<Produtos> lstProdutos;
+	public List<Vendedores> lstVendedores;
 	
+	public SimulaBanco() {
+		this.lstLeilao = new ArrayList<Leilao> ();
+		this.lstCompradores  = new ArrayList<Compradores> ();
+		this.lstProdutos = new ArrayList<Produtos> ();
+		this.lstVendedores = new ArrayList<Vendedores> ();
+		
+	}
 	public List<Leilao> getLeiloes(){
 		return this.lstLeilao;
 	}
@@ -37,8 +44,9 @@ public class SimulaBanco {
 		return this.lstCompradores;
 	}
 	
-	public void incluirComprador(Compradores c) {
+	public List<Compradores> incluirComprador(Compradores c) {
 		this.lstCompradores.add(c);
+		return lstCompradores;
 	}
 	public void incluirLance (Lances l, int id) {
 		this.returnLeilao(id).getLances().add(l);

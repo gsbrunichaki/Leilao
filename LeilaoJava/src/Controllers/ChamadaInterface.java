@@ -13,8 +13,8 @@ public class ChamadaInterface {
 	
 		ProcessamentoLeilao pl = new ProcessamentoLeilao();
 	
-	public void insereComprador(Compradores comprador) {
-				pl.novoComprador(comprador);
+	public List<Compradores> insereComprador(Compradores comprador) {
+				return pl.novoComprador(comprador);
 
 	}
 	

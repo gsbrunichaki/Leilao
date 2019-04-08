@@ -12,16 +12,17 @@ import Controllers.ChamadaInterface;
 
 public class Interface {
 	public static void main(String[] args) {
+		ChamadaInterface ci = new ChamadaInterface();
 		
 
-		menu();
+		menu(ci);
 		}
-	public static void menu() {
-		ChamadaInterface ci = new ChamadaInterface();
+	public static void menu(ChamadaInterface ci) {
+		
 		Scanner in = new Scanner(System.in);
 
 		int opcoes = -1;
-		System.out.println("BEM-VINDO(A) AO LEILÃO!\n");
+		System.out.println("\n\n\n\nBEM-VINDO(A) AO LEILÃO!\n");
 		System.out.println("O que você deseja fazer?\n");
 		System.out.println("1 - Me cadastrar como vendedor");
 		System.out.println("2 - Me cadastrar como comprador");
@@ -60,10 +61,10 @@ public class Interface {
 			//inserir Produto
 			Produtos p1 = new Produtos(nomeProd, catProd, preco, v1);
 			ci.insereProduto(p1);
-			menu();
+			menu(ci);
 			
 			List<Lances> lstLances= new ArrayList<Lances>();
-			Leilao l = new Leilao(0, p1, false, lstLances);
+			Leilao l = new Leilao(1, p1, false, lstLances);
 			ci.addLeilao(l);
 			break;
 		case 2:
@@ -79,8 +80,13 @@ public class Interface {
 
 			// inserir comprador no banco
 			Compradores c1 = new Compradores (nome1, idade1, sexo1, CPF1);
-			ci.insereComprador(c1);
-
+			List<Compradores> lstComp = ci.insereComprador(c1);
+			
+			System.out.println("Lista de todos os compradores");
+			 for (Compradores c : lstComp) {
+				System.out.println("Nome: " + c.getNome());
+			}
+				
 			System.out.println("Comprador cadastrado com sucesso!");
 
 			// seguir com opções de comprador (selecionar um produto e dar um lance)
@@ -88,20 +94,23 @@ public class Interface {
 			double lance = 10.0;
 			Lances l1 = new Lances (c1, lance);
 			ci.insereLance(l1, 1);
-			menu();
+			menu(ci);
 			break;
 			
 		case 3: 
 			System.out.println("Insira o id do leilão");
-			int id = 0;
-			ci.maiorLance(id);
-			menu();
+			int id = 1;
+			System.out.println("Maior Lance: " + ci.maiorLance(id));
+			menu(ci);
 			break;
 		case 4:
-			System.out.println("Lista de todos os compradores");
+			List<Leilao> lstLeilao = ci.returnLeiloes();
 			
-			
-			menu();
+			System.out.println("Lista de todos os leilões");
+			 for (Leilao le : lstLeilao) {
+				System.out.println("Id leilão: " + le.getId());
+			}
+			menu(ci);
 			break;
 		default:
 			System.out.println("ATÉ MAIS!");
